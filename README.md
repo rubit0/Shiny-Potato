@@ -1,10 +1,14 @@
 # Shiny Potato
 
+![image](docs/shiny_potato_readme.png)
+
 **A desktop app that polishes legacy video into modern MP4—without turning your weekend into a command-line film festival.** 🥔✨
 
 > **TL;DR** — Drag in dusty files, get shiny MP4s. No film degree required.
 
 Shiny Potato is a small [Electron](https://www.electronjs.org/) utility for macOS, Windows, and Linux. Point it at a folder or a hand-picked set of files; it scans for older formats, shows codecs and details, and converts the queue to **H.264 + AAC** in **MP4** using bundled [FFmpeg](https://ffmpeg.org/). Optional **upscale** applies denoise, sharpen, and gentle resolution bumps (720p / 1080p tiers) when you want the picture a little less… historical.
+
+![image](docs/app_screenshot.png)
 
 ---
 
@@ -90,23 +94,6 @@ There is no npm script yet, but the same pattern applies:
 
 ```bash
 npx electron-packager . "Shiny Potato" --platform=linux --overwrite --out=release --ignore="^/release($|/)" --ignore="^/dist($|/)" --ignore="^/out($|/)"
-```
-
----
-
-## Project layout 🗂️
-
-```
-├── main.js              # Main process: window, menus, IPC
-├── preload.js           # Isolated bridge to the renderer
-├── lib/
-│   ├── fileScanner.js   # Discovery, ffprobe, legacy filtering
-│   └── ffmpegConvert.js # Encode pipeline, progress, abort
-├── renderer/
-│   ├── index.html
-│   ├── styles.css
-│   └── renderer.js      # UI logic
-└── resources/           # Icons and static assets
 ```
 
 ---
