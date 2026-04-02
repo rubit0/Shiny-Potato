@@ -34,6 +34,8 @@ FFmpeg and FFprobe are pulled in as dependencies (`ffmpeg-static`, `ffprobe-stat
 
 ## Getting started 🚀
 
+After you **clone** the repository, run **`npm install` once** from the project root before using any npm scripts. Dependencies are installed into `node_modules/` and are not checked into git, so a fresh clone will not run until you install them.
+
 ```bash
 git clone https://github.com/rubit0/Shiny-Potato.git
 cd Shiny-Potato

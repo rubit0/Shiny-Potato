@@ -5,8 +5,8 @@
   "description": "Shiny Potato",
   "main": "main.js",
   "scripts": {
-    "start": "cross-env ELECTRON_RUN_AS_NODE= electron .",
-    "start:dev": "cross-env ELECTRON_RUN_AS_NODE= electron . --enable-logging",
+    "start": "electron .",
+    "start:dev": "electron . --enable-logging",
     "pack:mac": "electron-packager . \"Shiny Potato\" --platform=darwin --overwrite --out=release --icon=resources/icon --ignore=\"^/release($|/)\" --ignore=\"^/dist($|/)\" --ignore=\"^/out($|/)\"",
     "pack:win": "electron-packager . \"Shiny Potato\" --platform=win32 --overwrite --out=release --ignore=\"^/release($|/)\" --ignore=\"^/dist($|/)\" --ignore=\"^/out($|/)\""
   },
@@ -15,7 +15,6 @@
     "ffprobe-static": "^3.1.0"
   },
   "devDependencies": {
-    "cross-env": "^7.0.3",
     "electron": "^34.0.0",
     "electron-packager": "^17.1.2"
   },
