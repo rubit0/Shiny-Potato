@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shiny Potato</title>
+    <link rel="icon" type="image/png" href="../resources/icon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=IBM+Plex+Sans:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app app-shell">
+      <header class="header app-header--sticky" aria-label="App toolbar">
+        <div class="app-header__top">
+          <div class="app-header__toolbar">
+            <div class="app-header__actions-start">
+              <button
+                type="button"
+                id="folder-btn"
+                class="btn btn--primary"
+                aria-label="Choose a folder to scan"
+              >
+                📁 Folder
+              </button>
+              <button
+                type="button"
+                id="files-btn"
+                class="btn btn--primary"
+                aria-label="Choose video files"
+              >
+                🎬 Files
+              </button>
+            </div>
+            <div class="app-header__actions-end">
+              <button
+                type="button"
+                id="upscale-toggle"
+                class="app-header__upscale"
+                aria-pressed="true"
+                title="Denoise, sharpen, and scale up to the next 720p or 1080p tier (aspect ratio kept)"
+                aria-label="Upscale: denoise, sharpen, and scale to the next 720p or 1080p tier"
+              >
+                <span class="app-header__upscale-emoji" aria-hidden="true"
+                  >✨</span
+                >
+                <span class="app-header__upscale-text">Upscale</span>
+              </button>
+              <button
+                type="button"
+                id="convert-btn"
+                class="btn btn--convert"
+                data-mode="convert"
+                disabled
+                aria-label="Convert selected videos to MP4"
+              >
+                🎞️ Convert
+              </button>
+            </div>
+          </div>
+        </div>
+        <div id="header-progress-wrap" class="app-header__progress" hidden>
+          <span class="app-header__progress-label">Overall</span>
+          <span
+            id="overall-progress-files"
+            class="app-header__progress-files"
+            aria-live="polite"
+          ></span>
+          <progress id="overall-progress-bar" max="100" value="0"></progress>
+          <span id="overall-progress-text">0%</span>
+        </div>
+      </header>
+
+      <main class="main">
+        <section class="panel panel--body" aria-label="Scan results">
+          <div class="main-list-area">
+            <div id="empty-brand" class="empty-brand">
+              <div class="empty-brand__inner">
+                <img
+                  class="empty-brand__logo"
+                  src="../resources/icon.png"
+                  width="108"
+                  height="108"
+                  alt=""
+                  decoding="async"
+                />
+                <h1 class="empty-brand__title">Shiny Potato</h1>
+                <p class="empty-brand__tagline">
+                  Convert legacy and older-encoded video to modern MP4
+                </p>
+                <p
+                  class="empty-brand__formats"
+                  aria-label="Supported legacy video formats"
+                >
+                  <span class="empty-brand__formats-label"
+                    >Supported formats</span
+                  >
+                  3GP, AMR, MP4, M4V, AVI, WMV, MOV, FLV, MPG, MPEG
+                </p>
+              </div>
+            </div>
+            <div
+              id="scan-results"
+              class="scan-results"
+              aria-live="polite"
+            ></div>
+          </div>
+        </section>
+      </main>
+    </div>
+    <script type="module" src="./renderer.js"></script>
+  </body>
+</html>

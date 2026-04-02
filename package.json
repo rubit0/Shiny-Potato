@@ -1,0 +1,25 @@
+{
+  "name": "shiny-potato",
+  "productName": "Shiny Potato",
+  "version": "1.0.0",
+  "description": "Shiny Potato",
+  "main": "main.js",
+  "scripts": {
+    "start": "cross-env ELECTRON_RUN_AS_NODE= electron .",
+    "start:dev": "cross-env ELECTRON_RUN_AS_NODE= electron . --enable-logging",
+    "pack:mac": "electron-packager . \"Shiny Potato\" --platform=darwin --overwrite --out=release --icon=resources/icon --ignore=\"^/release($|/)\" --ignore=\"^/dist($|/)\" --ignore=\"^/out($|/)\"",
+    "pack:win": "electron-packager . \"Shiny Potato\" --platform=win32 --overwrite --out=release --ignore=\"^/release($|/)\" --ignore=\"^/dist($|/)\" --ignore=\"^/out($|/)\""
+  },
+  "dependencies": {
+    "ffmpeg-static": "^5.2.0",
+    "ffprobe-static": "^3.1.0"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "electron": "^34.0.0",
+    "electron-packager": "^17.1.2"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
